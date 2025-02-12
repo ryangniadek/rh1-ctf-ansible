@@ -5,10 +5,10 @@
 
   tasks:
 
-    - name: Create a new primary partition with a size of 1GiB
+    - name: Create a new partition with a size of 1GiB
       community.general.parted:
         device: /dev/nvme1n1
-        number: 2
+        number: 1
         state: present
         fs_type: xfs4
-        part_start: -1GiB
+        part_end: 1GiB
