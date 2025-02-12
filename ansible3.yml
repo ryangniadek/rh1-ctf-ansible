@@ -12,3 +12,11 @@
         state: present
         fs_type: xfs4
         part_end: 1GiB
+
+    - name: Mount nvme1n1p1 to /automount
+      ansible.posix.mount:
+        path: /extdrive
+        src: /dev/nvme1n1p1
+        opts: defaults
+        fstype: auto
+        state: mounted
