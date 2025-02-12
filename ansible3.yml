@@ -1,0 +1,14 @@
+---
+- name: Ansible 3 - Storage Management
+  hosts: all
+  become: true
+
+  tasks:
+
+    - name: Create a new primary partition with a size of 1GiB
+      community.general.parted:
+        device: /dev/nvme1n1
+        number: 2
+        state: present
+        fs_type: xfs4
+        part_start: -1GiB
